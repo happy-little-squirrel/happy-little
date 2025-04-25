@@ -1,0 +1,290 @@
+.page {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  line-height: auto;
+  color: #594E4E;
+  letter-spacing: 1.5px;
+}
+
+.cover {
+  width: 100%;
+  height: 707px;
+  background: url(../../images/contacts/contacts_cover.png) center/cover;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cover_heading {
+  margin-bottom: 10%;
+  width: 79%;
+  text-align: right;
+  font-size: 70px;
+  color: #F5EAEA;
+  text-transform: uppercase;
+}
+
+.content_decor {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  background-color: #FFF;
+  filter: drop-shadow(0px -100px 50px #FFF);
+}
+
+.connection {
+  margin: 2% 0%;
+  height: 768px;
+  position: relative;
+}
+
+.line01 {
+  position: absolute;
+  right: 0;
+}
+
+.vector {
+  position: absolute;
+  top: 10%;
+  z-index: -1;
+  background-size: contain;
+  width: 100%;
+  height: 100%; 
+}
+
+.connection_content {
+  width: 79%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+} 
+
+.message {
+  width: 10%;
+  margin: 0% 10%;
+  display: flex;
+}
+
+.massage01 {
+  width: 20px;
+  height: 20px;
+  padding: 3%;
+  border: 1px solid;
+  border-radius: 50px;
+}
+
+.connection_head {
+  width: 100%;
+}
+
+.text {
+  font-size: 20px;
+  font-weight: 600;
+  width: 90%;
+  text-align: right;
+}
+
+.format {
+  width: 80%;
+  background-color: #FFF;
+  display: flex;
+  gap: 20px;
+  border-left: 10px solid #A49986;
+  border-radius: 90px;
+}
+
+.format_connection {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.connection_phone {
+  display: flex;
+  gap: 20px;
+}
+
+.phone {
+  width: 20px;
+  height: 20px;
+}
+
+.cooperation {
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.btn {
+  width: 90%;
+  text-align: left;
+}
+
+.ours_coffeehouse {
+  width: 100%;
+  height: 768px;
+  position: relative;
+}
+
+.beans {
+  position: absolute;
+  bottom: 72%;
+  right: 0px;
+}
+
+.vector_two {
+  width: 25%;
+  top: 21%;
+  right: 0px;
+  height: 15%;
+  position: absolute;
+  z-index: -1;
+}
+
+.ours_content,
+.director_content {
+  height: 100%;
+  width: 79%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ours_column {
+  display: flex;
+  gap: 20px;
+  width: 80%;
+}
+
+.coffee_heading {
+  text-align: center;
+  color: #F5EAEA;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.director {
+  width: 100%;
+  height: 768px;
+  position: relative;
+}
+
+.blob01 {
+  position: absolute;
+  left: 0;
+  bottom: 70%;
+}
+
+.blob02 {
+  position: absolute;
+  right: 0px;
+  bottom: 70%;
+}
+
+.director_content {
+  gap: 20px;
+}
+
+.format_director {
+  display: flex;
+  gap: 20px;
+  border-radius: 90px;
+  border-right: 10px solid #A49986;
+  width: 80%;
+}
+
+.director_img {
+  background: url(../../images/contacts/director.png) no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 50%;
+  height: 594px;
+}
+
+.director_name {
+  font-size: 18px;
+  color: #F5EAEA;
+}
+
+.director_text {
+  width: 70%;
+  font-weight: 600;
+  text-align: center;
+  color: #F5EAEA;
+  margin-bottom: 5%;
+}
+
+.director_form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.form_heading {
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.form_text {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form_inp {
+  border: none;
+  border-bottom: 1px dotted;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+}
+
+.form_comm {
+  width: 80%;
+  height: 124px;
+  border: 1px dotted;
+}
+
+.btn_submit {
+  color: #F5EAEA;
+  background-color: #594E4E;
+  font-weight: 600;
+  width: 40%;
+  height: 30px;
+  border-radius: 90px;
+  letter-spacing: 1px;
+}
+
+.dangerous {
+  width: 321px;
+  line-height: 20px;
+  font-size: 10px;
+  text-align: center;
+}
+
+
+

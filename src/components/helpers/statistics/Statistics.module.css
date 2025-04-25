@@ -1,0 +1,20 @@
+.statistic {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name {
+    all: inherit;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .hr {
+    width: 352px;
+  }
+  
+  .price {
+    width: 100%;
+    text-align: right;
+  }

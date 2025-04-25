@@ -1,0 +1,14 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.img {
+  width: 15%;
+}
+
+.title {
+  text-align: center;
+}

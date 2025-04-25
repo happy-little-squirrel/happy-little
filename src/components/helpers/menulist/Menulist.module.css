@@ -1,0 +1,91 @@
+.menu {
+    width: 830px;
+    height: 661px;
+}
+
+.menu_list {
+    width: 823px;
+    height: 124px;
+    display: flex;
+    gap: 50px;
+}
+
+.name {
+    color: #594E4E;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    width: 1024px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../../images/menu/beans.png);
+    justify-content: center;
+    align-items: center;
+}
+
+.cards { 
+    width: 100%;
+    height: 570px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 0;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.card {
+    margin: 0;
+    width: 185px;
+    height: 263px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card_info {
+    width: 100%;
+    height: 227px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    line-height: 20px;
+}
+
+.img_coff {
+    height: 160px;
+}
+
+.namecoff {
+    width: 100%;
+    color: #594E4E;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.8px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.volumecoff {
+    color: #594E4E;
+    font-size: 15px;
+    font-weight: 300;
+    list-style-type: none;
+    letter-spacing: 0.8px;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btn_order {
+    background-color: #594E4E;
+    letter-spacing: 2px;
+    color: #F5EAEA;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 0px 0px 90px 90px;
+    padding: 5px  47px;
+    text-transform: uppercase;
+}

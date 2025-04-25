@@ -1,0 +1,87 @@
+.footer {
+  width: 100%;
+  height: 377px;
+  background-color: #594E4E;
+  margin-top: 1%;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.foot {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+  color: #F5EAEA;
+}
+
+.logo01,
+.logo03 {
+  width: 75%;
+  height: 75%;
+  rotate: 169deg;
+}
+
+.logo03 {
+  rotate: 135deg;
+}
+
+.logo02,
+.logo04 {
+  width: 50%;
+  height: 50%;
+  rotate: 100deg;
+}
+
+.logo04 {
+  rotate: 50deg;
+}
+
+.menu_links_list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+} 
+
+.nav_link {
+  text-decoration: none;
+  color: #F5EAEA;
+}
+
+.message {
+  width: 50%;
+  display: flex;
+  gap: 20px;
+}
+
+.massage01 {
+  width: 20px;
+  height: 20px;
+  padding: 3%;
+  color: #F5EAEA;
+  border: 1px solid #F5EAEA;
+  border-radius: 50px;
+}
+
+
+.barcode {
+  height: 100%; 
+  font-family: "Libre Barcode 128 Text", system-ui;
+  font-size: 40px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 8%;
+  color: #F5EAEA;
+}
