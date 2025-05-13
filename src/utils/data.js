@@ -13,6 +13,27 @@ export const interiors = [
   },
 ];
 
+export const homeSlider = [
+  {
+    img: '/src/assets/images/home/slide01.png',
+    heading: 'Франшиза кофейни “HAPPY LITTLE”',
+    btn: 'Узнать подробнее',
+    path: '/Franchise',
+  },
+  {
+    img: '/src/assets/images/home/slide02.png',
+    heading: 'Мы - кофейня, где звезды становятся ближе',
+    btn: 'Узнать подробнее',
+    path: '/About',
+  },
+  {
+    img: '/src/assets/images/home/slide03.png',
+    heading: 'Твой кофе у нас',
+    btn: 'Заказать',
+    path: '/Menu',
+  },
+];
+
 export const categories = [
   {
     id: 1,
@@ -308,19 +329,26 @@ export const formats = [
   {
     img: '/src/assets/images/franchise/form01.png',
     heading: 'Basic',
-    title:
-      'Бар формата «остров» без посадки. Идеально подходит для мест с ограниченной площадью, располагается в локациях со сформированным трафиком.',
+    title: 'Бар формата «остров» без посадки. Идеально подходит для мест с ограниченной площадью, располагается в локациях со сформированным трафиком.',
+    investment: 'От 2 400 000 р',
+    average: '1 000 000 р',
+    term: ' От 5 месяцев' ,
   },
   {
     img: '/src/assets/images/franchise/form02.png',
     heading: 'Basic+',
     title: 'Бар формата «остров» с посадочной зоной. Располагается в местах со сформированным трафиком',
+    investment: 'От 5 400 000 р',
+    average: '3 000 000 р',
+    term: ' От 12 месяцев' ,
   },
   {
     img: '/src/assets/images/franchise/form03.png',
-    heading: 'Streen +',
-    title:
-      'Кофейня с отдельным входом и посадочной зоной. Рассчитана на уличный трафик, имеет высокий средний чек, может располагаться в спальных районах, рядом с бизнес центрами, на центральных улицах или ЖК',
+    heading: 'Street +',
+    title: 'Кофейня с отдельным входом и посадочной зоной. Рассчитана на уличный трафик, имеет высокий средний чек, может располагаться в спальных районах, рядом с бизнес центрами, на центральных улицах или ЖК',
+    investment: 'От 8 200 000 р',
+    average: '20 500 000 р',
+    term: ' От 16 месяцев' ,
   },
 ];
 
@@ -373,7 +401,7 @@ export const coffees = [
     composition: 'Эспрессо, молоко, ванильный сироп',
     volume: '50 мл',
     price: '150 р',
-    img: '/src/assets/images/menu/menu03/coff01.png',
+    img: "/src/assets/images/menu/menu03/coff01.png",
     bigimg: '/src/assets/images/menu/menu03/coff01.png',
   },
   {
@@ -441,7 +469,7 @@ export const coffees = [
   },
 ];
 
-export const slider = [
+export const aboutSlider = [
   {
     img: '/src/assets/images/about/slide01.png',
   },
@@ -450,18 +478,6 @@ export const slider = [
   },
   {
     img: '/src/assets/images/about/slide03.png',
-  },
-];
-
-export const checkStatistics = [
-  { name: 'Инвестиции', price: 'От 2 400 000 р' },
-  {
-    name: 'Средний оборот',
-    price: '1 000 000 р',
-  },
-  {
-    name: 'Средний срок',
-    price: 'От 12 меяцев',
   },
 ];
 
