@@ -88,7 +88,7 @@ export const Contacts = () => {
                       <input type="text"></input>
                     </label>
                     <button className=" cursor-pointer text-[#F5EAEA] bg-[#594E4E] rounded-[90px] px-15 py-1 ">Отправить</button>
-                    <p className=" font-normal text-[15px] text-center ">
+                    <p className=" font-normal text-[12px] text-center ">
                       Нажимая на кнопку, вы даёте разрешение на обработкой персональных данных и принимаете условия
                       пользовательского соглашения отправить
                     </p>
