@@ -12,12 +12,12 @@ function Franchise() {
     const [modalActive, setModalActive] = useState(false);
     const [modelActive, setModelActive] = useState(false);
     const prevbuttons = () => (
-        <div className=" absolute left-10 top-60 ">
+        <div className=" absolute left-10 top-60 hover:scale-130 ">
             <IoIosArrowBack />
         </div>
     );
     const nextbuttons = () => (
-      <div className=" absolute right-10 top-60 ">
+      <div className=" absolute right-10 top-60 hover:scale-130 ">
         <IoIosArrowForward />
       </div>
     );
@@ -61,7 +61,7 @@ function Franchise() {
                         <div className=" w-[80%] flex flex-col gap-[30px] items-center ">
                             <h2 className=" text-[20px] uppercase ">Только для новых городов</h2>
                             <p>Станьте первым партнёром HAPPY LITTLE в вашем городе и займите лидирующую позицию на рынке!</p>
-                            <button onClick={() => setModalActive(true)} className=" cursor-pointer underline w-[90%] text-right ">Открыть кофейню</button>
+                            <button onClick={() => setModalActive(true)} className=" hover:text-[#E5946D] cursor-pointer underline w-[90%] text-right ">Открыть кофейню</button>
                         </div>
                     </div>
                 </section>
@@ -103,7 +103,7 @@ function Franchise() {
                                 )
                             })}
                         </AliceCarousel>
-                        <button onClick={() => setModelActive(true)} className=" cursor-pointer underline ">Запросить финансовую модель</button>
+                        <button onClick={() => setModelActive(true)} className=" hover:text-[#E5946D] cursor-pointer underline ">Запросить финансовую модель</button>
                     </div> 
                 </section>
             </section>

@@ -476,6 +476,7 @@ export const coffeehouse = [
 
 export const coffees = [
   {
+    id:1,
     name: 'Утонченный Рак',
     descriptions: '(Латте с добавлением ванили)',
     composition: 'Эспрессо, молоко, ванильный сироп',
@@ -485,6 +486,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff01.png',
   },
   {
+    id:2,
     name: 'Шоколадный Лев',
     descriptions: '(Кофе с шоколадным кремом и сливками)',
     composition: 'Эспрессо, сливки 20%, шоколадный топпинг',
@@ -494,6 +496,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff02.png',
   },
   {
+    id:3,
     name: 'Мягкий Овен',
     descriptions: 'Сливочный Айс-капучино',
     composition: 'Эспрессо, молоко, сливки 20%',
@@ -503,6 +506,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff03.png',
   },
   {
+    id:4,
     name: 'Какаво Скорпиону',
     descriptions: '(Какао с пряностями)',
     composition: 'Корица, Имбирь, Гвоздика, Мускатный орех, Кардамон, Кайенский перец, Бадьян',
@@ -512,6 +516,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff04.png',
   },
   {
+    id:5,
     name: 'Любовь Девы',
     descriptions: '(Гляссе с шоколадной крошкой)',
     composition: 'Мороженное Сливочный пломбир, тертый шоколад, шоколадный топпинг',
@@ -521,6 +526,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff05.png',
   },
   {
+    id:7,
     name: 'Флэт Рыбельский',
     descriptions: '(Флэт Уайт с добавилением сиропа Curacao)',
     composition: 'Эспрессо, молоко, сироп "Blue Curacao',
@@ -530,6 +536,7 @@ export const coffees = [
     bigimg: '/src/assets/images/menu/menu03/coff06.png',
   },
   {
+    id:8,
     name: 'Глаза Близнеца',
     descriptions: '(Фраппуджио с добавлением орехов)',
     composition: 'Эспрессо, лед, молоко, топпинг "карамель", основа для молочного коктейля "ваниль", грецкие орехи',

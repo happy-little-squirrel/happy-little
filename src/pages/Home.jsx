@@ -2,13 +2,16 @@ import List from '../components/List';
 import { HomeSlider } from '../components/Slider';
 import React, { useState } from 'react';
 import ModalOursCoffeeHouse from '../components/ModalOursCoffeeHouse';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { news } from '../utils/data';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import { coffees } from '../utils/data';
+import { categories } from '../utils/data';
 
 function Home() {
+  const { id } = useParams();
+  const category = coffees[id]
   const [modalActive, setModalActive] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [offset, setoffset] = useState(0);
@@ -29,7 +32,7 @@ function Home() {
     return (
       <section className=" text-[#594e4e] font-monts leading-[1.5] tracking-[1.5px] text-[18px] font-semibold ">
         <section className=" relative h-[708px] w-[100vw] px-27 bg-[url(src/assets/images/home/home_cover.jpg)] bg-cover bg-no-repeat  bg-white/30 bg-blend-lighten ">
-          <img className="  absolute right-0 top-0" src="/src/assets/images/cloud01.png "></img>
+          <img className=" absolute right-0 top-0" src="/src/assets/images/cloud01.png "></img>
           <img className=" absolute left-0 bottom-0" src="/src/assets/images/cloud02.png "></img>
           <div className=" flex w-[79%] h-[100%] pl-20">
             <div className=" flex flex-col w-[25%] relative h-[80%] ">
@@ -66,11 +69,11 @@ function Home() {
                   насыщенных и смелых купажей для огненных Овнов до нежных и утонченных ноток для воздушных Весов — наш
                   кофе подобран так, чтобы подчеркнуть вашу индивидуальность и стать частью вашего дня.
                 </p>
-                <button className=" cursor-pointer z-6 underline w-[60%] " onClick={() => setModalActive(true)}>
+                <button className=" hover:text-[#E5946D] cursor-pointer z-6 underline w-[60%] " onClick={() => setModalActive(true)}>
                   Наши кофейни
                 </button>
               </div>
-              <div className=" w-[95%] h-[60%] flex relative  ">
+              <div className=" hover:w-[110%] hover:duration-1000 duration-1000 w-[95%] h-[60%] flex relative  ">
                 <img className=" absolute bottom-[32%] z-5 " src="/src/assets/images/home/coff01.png"></img>
                 <img className=" absolute left-[8%] z-4 " src="/src/assets/images/home/coff02.png"></img>
                 <img className=" absolute bottom-0 left-[35%] z-3 " src="/src/assets/images/home/coff03.png"></img>
@@ -103,7 +106,10 @@ function Home() {
                           </div>
                             <p className=" font-normal ">{selectedCoffee.descriptions}</p>
                         </div>
-                        <button className=" cursor-pointer text-[#F5EAEA] bg-[#594E4E] rounded-[90px] px-15 py-1  ">Подробнее</button>
+                        
+                          <NavLink to={`/Menu/2/${`${id-1}`}`}className=" hover:bg-[#E5946D] hover:duration-350 duration-700 cursor-pointer text-[#F5EAEA] bg-[#594E4E] rounded-[90px] px-15 py-2  ">Подробнее
+                          </NavLink>
+                      
                       </div>
                     )}
                     {selectedCoffee && (
@@ -126,16 +132,17 @@ function Home() {
                     <div className=" flex items-center gap-[10px]  ">
                       <div className=" flex ">
                         <IoIosArrowBack 
-                        className=" cursor-pointer "
+                        className=" hover:scale-150 cursor-pointer "
                         onClick={handlePrev} />
                       </div>
                       <div className=" overflow-hidden flex  ">
                         <div className=" flex gap-[20px]   ">
-                          {coffees.map((item, index) => {
+                          {coffees.map((item, id, index) => {
                             return (
+                              <NavLink to={`${id-1}`} className=" border w-[100px] h-[100px] ">
                               <div
                                 key={index}
-                                className=" w-[80px] h-[88px] "
+                                className=" hover:duration-150 duration-150 hover:opacity-100 opacity-50 w-[80px] h-[88px] "
                                 style={{
                                 transform: `translateX(${offset}px)`,
                                 }}
@@ -143,18 +150,19 @@ function Home() {
                                 >
                                 <img className=" h-[100%] cursor-pointer " src={item.img} />
                               </div>
+                              </NavLink>
                             );
                           })}
                         </div>
                       </div>
                     <div>
                       <IoIosArrowForward
-                      className=" cursor-pointer "
+                      className=" hover:scale-150 cursor-pointer "
                       onClick={handleNext}
                       />
                     </div>
                   </div>
-                  <NavLink className=" underline text-center " to="/Menu">Посмотреть меню</NavLink>
+                  <NavLink className=" underline text-center hover:text-[#E5946D] " to="/Menu">Посмотреть меню</NavLink>
                 </div>
               </div>
             </div>
@@ -167,7 +175,7 @@ function Home() {
                   return <List key={index} heading={list.heading} img={list.img} />;
                 })}
               </div>
-              <NavLink className=" w-[90%] text-right underline " to="https://vk.com/">
+              <NavLink className=" hover:text-[#E5946D] w-[90%] text-right underline " to="https://vk.com/">
                 Подробнее в нашем сообществе ВКонтакте
               </NavLink>
             </div>

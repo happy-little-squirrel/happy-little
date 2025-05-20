@@ -5,7 +5,7 @@ import { interiors, values } from '../utils/data';
 import { AboutSlider } from '../components/Slider';
 import ModalOursCoffeeHouse from '../components/ModalOursCoffeeHouse';
 
-export const About = () => {
+function About() {
   const [modalActive, setModalActive] = useState(false);
   return (
     <section className=" text-[#594e4e] font-monts leading-[1.5] tracking-[1.5px] text-[18px] font-semibold ">
@@ -57,7 +57,7 @@ export const About = () => {
                 порадует вкусом, но и зарядит энергией, вдохновением или успокоением в зависимости от вашего знака
                 зодиака.
               </p>
-              <button onClick={() => setModalActive(true)} className=" cursor-pointer z-1 underline text-right w-[90%] ">
+              <button onClick={() => setModalActive(true)} className=" hover:text-[#E5946D] cursor-pointer z-1 underline text-right w-[90%] ">
                 Наши кофейни
               </button>
             </div>
@@ -75,7 +75,7 @@ export const About = () => {
               })}
             </div>
             <h2 className=" text-[20px] uppercase ">Наша команда</h2>
-            <div className=" w-[80%] h-[30%] relative">
+            <div className=" hover:w-[110%] hover:duration-1000 duration-1000 w-[80%] h-[30%] relative">
               <img className=" absolute bottom-[10%] " src="/src/assets/images/about/team01.png"></img>
               <img className=" absolute left-[13%] bottom-0 z-5 " src="/src/assets/images/about/team02.png"></img>
               <img className=" absolute left-[23%] z-4 " src="/src/assets/images/about/team03.png"></img>
