@@ -1,29 +1,53 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { categories } from '../utils/data';
+import AliceCarousel from 'react-alice-carousel';
+import { IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 
 function Menu() {
   const { idMenu } = useParams();
   const category = categories[idMenu]
+  const prevbuttons = () => (
+    <div className=" absolute top-[30%] -left-5 ">
+      <IoIosArrowBack />
+    </div>
+  );
+  const nextbuttons = () => (
+    <div className=" absolute top-[30%] -right-5 ">
+      <IoIosArrowForward />
+    </div>
+  );
   const setActive = ({ isActive }) => (isActive ? " text-[#E5946D] " : " hover:text-[#E5946D] focus:outline-none ")
   return (
     <section className=" text-[#594e4e] font-monts leading-[1.5] tracking-[1.5px] text-[18px] font-semibold ">
-      <div className=" w-[100%] h-[708px] bg-[url(src/assets/images/menu/menu_cover.png)] bg-cover bg-no-repeat flex ">
-        <div className=" w-[50%] flex justify-center items-center ">
-          <div className=" w-[50%] flex flex-col gap-[10px] border-l-4 border-t-1 rounded-b-[50px] items-center ">
+      <div className=" max-lg:bg-center max-lg:justify-center max-lg:bg-white/30 max-lg:bg-blend-lighten w-[100%] h-screen bg-[url(src/assets/images/menu/menu_cover.png)] bg-cover bg-no-repeat flex ">
+        <div className=" max-lg:w-[80%] w-[50%] flex justify-center items-center ">
+          <div className=" max-lg:w-[100%] w-[50%] flex flex-col gap-[10px] border-l-4 border-t-1 rounded-b-[50px] items-center ">
             <div className=" w-[100%] pl-5 uppercase text-[70px] ">
-              <h1 className=" font-normal ">Твой</h1>
-              <h1>кофе</h1>
-              <h1 className=" font-black ">у нас</h1>
+              <h1 className=" max-lg:text-[55px] font-normal ">Твой</h1>
+              <h2 className=" max-lg:text-[45px] ">кофе</h2>
+              <h3 className=" max-lg:text-[25px] font-black ">у нас</h3>
             </div>
-            <p className=" text-[#f5eaea] bg-[#594e4e] uppercase py-2 w-[100%] font-normal px-14 rounded-[0_0_60px_60px] ">Закажи заранее</p>
+            <p className=" max-lg:hidden text-[#f5eaea] bg-[#594e4e] uppercase py-2 w-[100%] font-normal px-14 rounded-[0_0_60px_60px] ">Закажи заранее</p>
           </div>
         </div>
-        <div className=" bg-black opacity-[0.6] w-[50%] h-[100%] "></div>
+        <div className=" max-lg:hidden bg-black opacity-[0.6] w-[50%] h-[100%] "></div>
       </div>
-      <section className=" drop-shadow-[0px_-120px_50px_rgba(255,255,255,1)] bg-white flex justify-center ">
-        <img className=" absolute right-0 " src="/src/assets/images/line02.png"></img>
-        <div className=" w-[79%] h-[768px] flex flex-col items-center gap-[15px] ">
-          <div className=" relative h-[20%] w-[100%] flex justify-center gap-[20px] text-[15px] ">
+      <section className=" max-lg:mb-2 max-sm:gap-4 max-lg:drop-shadow-none drop-shadow-[0px_-120px_50px_rgba(255,255,255,1)] bg-white flex justify-center ">
+        <img className=" max-lg:w-60 absolute right-0 " src="/src/assets/images/line02.png"></img>
+        <div className=" w-[80%] h-auto flex flex-col items-center gap-[15px] ">
+          <div className=" lg:hidden mt-5 h-[10vh] w-[50%] ">
+            <AliceCarousel renderPrevButton={prevbuttons} renderNextButton={nextbuttons} disableDotsControls = 'false'> 
+            {categories.map(({ name, id, index }) => (
+                <div key={name} className=" flex items-center justify-center h-[9vh] w-[100%] ">
+                  <NavLink to={`/Menu/${id - 1}`} className={setActive} key={index}>
+                    <h3 className=" max-md:text-[15px] text-[18px] uppercase text-center ">{name}</h3>
+                  </NavLink>
+                </div> 
+            ))}
+            </AliceCarousel>
+          </div>
+          <div className=" max-lg:hidden relative h-[22vh] w-[100%] flex justify-center gap-[20px] text-[15px] ">
             {categories.map(({ name, id, index }) => (
                 <div key={name} className=" hover:duration-700 duration-700 hover:scale-110 w-[15%] flex items-center justify-center ">
                   <NavLink to={`/Menu/${id - 1}`} className={setActive} key={index}>
@@ -33,14 +57,14 @@ function Menu() {
                 </div> 
             ))}
           </div>
-          <section className=" w-[80%] grid grid-cols-[1fr_1fr_1fr_1fr] gap-y-[20px] gap-x-[20px] items-center">
+          <section className=" max-md:flex max-md:flex-col max-lg:w-[90%] max-lg:grid-cols-2 w-[70%] grid grid-cols-4 gap-[20px] items-center">
             {category.posts.map(({ img, namecoff, volumecoff, id, index }) => (
               <NavLink to={`${id-1}`}  key={index}>
-                <div className=" hover:duration-150 duration-150 hover:text-[#E5946D] w-[185px] h-[263px] flex flex-col justify-center items-center ">
-                  <li key={id} className=" w-[100%] h-[227px] flex flex-col gap-[8px] h-[100%] justify-end mb-1 items-center ">
-                    <img src={img} className=" h-[155px] w-[90%] "></img>
-                    <h3 className=" text-[13px] text-center h-[15%] flex items-center ">{namecoff}</h3>
-                      <ul className=" uppercase text-[15px] text-center font-normal " aria-hidden="true">
+                <div className=" max-md:w-[60vw] max-lg:w-[100%] max-lg:justify-between max-lg:h-[45vh] hover:duration-150 duration-150 hover:text-[#E5946D] w-[185px] h-[263px] flex flex-col justify-center items-center ">
+                  <li key={id} className=" max-lg:h-[40vh] w-[100%] h-[227px] flex flex-col gap-[8px] h-[100%] justify-end mb-1 items-center ">
+                    <img src={img} className=" max-lg:h-[60%] max-lg:w-[100%] h-[155px] w-[90%] "></img>
+                    <h3 className=" max-md:text-[15px] max-lg:text-[18px] text-[13px] text-center h-[15%] flex items-center ">{namecoff}</h3>
+                      <ul className=" max-md:text-[15px] max-lg:text-[18px] uppercase text-[15px] text-center font-normal " aria-hidden="true">
                         <li>{volumecoff}</li>
                       </ul>
                   </li>
