@@ -1,11 +1,15 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { PiCoffeeBeanFill } from "react-icons/pi";
 import { FaTelegramPlane, FaVk, FaWhatsapp  } from 'react-icons/fa';
 
 export const Footer = () => {
     const setActive = ({ isActive }) => (isActive ? " text-[#E5946D] " : " hover:text-[#E5946D] focus:outline-none ")
+    const location = useLocation();
+    const isMenuActive = () => {
+    return location.pathname.toLowerCase().includes('menu');
+  };
     return (
-        <footer className=" max-md:h-[60px] text-[#f5eaea] h-[377px] flex justify-center items-center bg-[#594E4E] ">
+        <footer className=" dark:text-[#f5eaea] dark:bg-[#0b0005] max-md:h-[60px] text-[#f5eaea] h-[377px] flex justify-center items-center bg-[#594E4E] ">
             <div className=" flex flex-col gap-[20px] items-center">
                 <NavLink className=" max-md:w-[15vh] flex items-end w-[60%] hover:animate-bounce " to='/'>
                     <PiCoffeeBeanFill className=" rotate-169 w-[50%] h-[80%] " />
@@ -14,19 +18,20 @@ export const Footer = () => {
                     <PiCoffeeBeanFill className=" rotate-50 w-[30%] h-[50%] "/>
                 </NavLink>
                 <ul className=" max-md:hidden flex flex-col gap-[10px] items-center justify-end font-monts text-[18px] font-semibold ">
-                    <NavLink to='/' className={setActive}>
+                    <NavLink to='/Home' onClick={() => window.scrollTo(0, 0)} className={setActive}>
                     Главная
                     </NavLink>
-                    <NavLink to='/About' className={setActive}>
+                    <NavLink to='/About' onClick={() => window.scrollTo(0, 0)} className={setActive}>
                     О нас
                     </NavLink>
-                    <NavLink to='/Menu/0' className={setActive}>
+                    <NavLink to='/Menu0' onClick={() => window.scrollTo(0, 0)} className={({ isActive }) => 
+                        (isActive || isMenuActive()) ? "text-[#E5946D]" : "hover:text-[#E5946D] focus:outline-none"}>
                     Меню
                     </NavLink>
-                    <NavLink to='/Franchise' className={setActive}>
+                    <NavLink to='/Franchise' onClick={() => window.scrollTo(0, 0)} className={setActive}>
                     Франшиза
                     </NavLink>
-                    <NavLink to='/Contacts' className={setActive}>
+                    <NavLink to='/Contacts' onClick={() => window.scrollTo(0, 0)} className={setActive}>
                     Контакты
                     </NavLink>
                 </ul>

@@ -3,36 +3,33 @@ import { IoIosMenu } from 'react-icons/io';
 import { PiCoffeeBeanFill } from 'react-icons/pi';
 
 export const Header = () => {
+  const dark = () => {
+    document.documentElement.classList.add('dark',
+      localStorage.theme === "dark"
+    )
+  } 
+  const light = () => {
+    document.documentElement.classList.remove('dark',
+      localStorage.theme === "dark"
+    )
+  }  
+  const currentPath = location.pathname.endsWith('/') ? location.pathname.slice(0, -1) : location.pathname;
   return (
-    <header className=" font-monts font-semibold tracking-[0.8px] text-[#f5eaea] text-[15px] relative z-40 flex justify-center bg-[#594e4e] w-screen h-[60px] drop-shadow-xl/25 ">
-      <nav className=" max-lg:flex  max-lg:justify-between z-1 w-[79%] grid grid-cols-[0.15fr_1fr_0.1fr_max-content] gap-[10px] h-[100%] items-center">
-        <NavLink className=" focus:outline-none hover:animate-bounce cursor-ponter flex items-end text-[#f5eaea] " to="/">
-          <PiCoffeeBeanFill className=" max-lg:w-9 rotate-169 w-[50%] h-[80%]  " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-100 w-[30%] h-[50%] " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-135 w-[50%] h-[70%] " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-50 w-[30%] h-[50%] " />
+    <header className=" dark:text-[#f5eaea] dark:bg-[#0b0005] bg-[#594e4e] text-[#f5eaea] h-[10vh] flex justify-center ">
+      <nav className=" w-[80%] flex justify-between items-center ">
+        <NavLink to="/Home">
+          <PiCoffeeBeanFill className=" hover:text-[#E5946D] hover:animate-spin max-sm:w-8 cursor-pointer w-[40px] h-[40px] " />
         </NavLink>
-        <div className=" max-lg:hidden flex justify-center gap-[10px] opacity-[0.7] " >
-          <button>  
-            <img className=" w-[30px] " src="/src/assets/images/header/day.svg" />
-          </button>
-          <button>
-            <img className=" w-[30px] " src="/src/assets/images/header/daynight.svg"></img>
-          </button>
-          <button>
-            <img className=" w-[30px] " src="/src/assets/images/header/night.svg" />
-          </button>
+        <div className=" flex gap-5 opacity-[0.7] " >
+          <button onClick={light} className=" hover:animate-spin max-md:w-[30px] max-md:h-[30px] md:w-[40px] md:h-[40px] cursor-pointer bg-cover bg-[url(src/assets/images/header/day.svg)] " ></button>
+          <button onClick={dark} className=" hover:animate-spin max-md:w-[30px] max-md:h-[30px] md:w-[40px] md:h-[40px] cursor-pointer bg-cover bg-[url(src/assets/images/header/night.svg)] " ></button>
         </div>
-        <li className=" max-lg:hidden list-none text-[20px] flex gap-[5px] ">
-          <button className=" uppercase ">ru</button>
-          <p>/</p>
-          <button className=" uppercase ">en</button>
-        </li>
-        <NavLink to="/DropDownMenu">
-          <IoIosMenu className=" max-sm:w-9 hover:text-[#E5946D] w-[50px] h-[50px] " />
+        <NavLink to={`${currentPath}/DropDownMenu`} state={{ from: location.pathname }}>
+          <IoIosMenu className=" cursor-pointer max-sm:w-10 hover:text-[#E5946D] w-[60px] h-[60px] " />
         </NavLink>
       </nav>
     </header>
+  
   );
 };
 export default Header;

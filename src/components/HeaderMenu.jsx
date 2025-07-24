@@ -1,36 +1,37 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { PiCoffeeBeanFill } from 'react-icons/pi';
-import { useNavigate } from 'react-router';
 
 export const HeaderMenu = () => {
+  const dark = () => {
+    document.documentElement.classList.add('dark',
+      localStorage.theme === "dark"
+    )
+  } 
+  const light = () => {
+    document.documentElement.classList.remove('dark',
+      localStorage.theme === "dark"
+    )
+  }  
   const navigate = useNavigate();
+  const location = useLocation();
+  const getBasePath = () => {
+  const segments = location.pathname.split('/');
+  return segments.slice(0, segments.indexOf('DropDownMenu')).join('/') || '/';
+};
+
+const handleClose = () => navigate(getBasePath());
   return (
-    <header className=" bg-white font-monts font-semibold tracking-[0.8px] text-[#594e4e] text-[15px] relative z-40 flex justify-center w-[100vw] h-[60px] ">
-      <nav className=" max-lg:flex max-lg:justify-between z-1 w-[79%] grid grid-cols-[0.15fr_1fr_0.1fr_max-content] gap-[10px] h-[100%] items-center">
-        <NavLink className=" hover:animate-bounce cursor-ponter flex items-end text-[#594e4e] " to="/">
-          <PiCoffeeBeanFill className=" max-lg:w-9 rotate-169 w-[50%] h-[80%] " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-100 w-[30%] h-[50%] " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-135 w-[50%] h-[70%] " />
-          <PiCoffeeBeanFill className=" max-lg:hidden rotate-50 w-[30%] h-[50%] " />
+    <header className=" dark:text-[#f5eaea] dark:bg-[#0b0005] text-[#594e4e] h-[10vh] flex justify-center ">
+      <nav className=" w-[80%] flex justify-between items-center ">
+        <NavLink to="/Home">
+          <PiCoffeeBeanFill className=" hover:text-[#E5946D] hover:animate-spin max-sm:w-8 cursor-pointer w-[40px] h-[40px] " />
         </NavLink>
-        <div className=" max-lg:w-40 max-lg:gap-3 flex justify-center gap-[10px] opacity-[0.7] ">
-          <button>
-            <img className=" w-[30px] " src="/src/assets/images/header/day.svg" />
-          </button>
-          <button>
-            <img className=" w-[30px] " src="/src/assets/images/header/daynight.svg"></img>
-          </button>
-          <button>
-            <img className=" w-[30px] " src="/src/assets/images/header/night.svg" />
-          </button>
+        <div className=" flex gap-5 opacity-[0.7] " >
+          <button onClick={light} className=" hover:animate-spin max-md:w-[30px] max-md:h-[30px] md:w-[40px] md:h-[40px] cursor-pointer bg-cover bg-[url(src/assets/images/header/day.svg)] " ></button>
+          <button onClick={dark} className=" hover:animate-spin max-md:w-[30px] max-md:h-[30px] md:w-[40px] md:h-[40px] cursor-pointer bg-cover bg-[url(src/assets/images/header/night.svg)] " ></button>
         </div>
-        <li className=" max-lg:hidden list-none text-[20px] flex gap-[5px]  ">
-          <button className=" uppercase  ">ru</button>
-          <p>/</p>
-          <button className=" uppercase ">en</button>
-        </li>
-        <AiOutlineCloseCircle onClick={() => {navigate(-1)}} className=" max-sm:w-9 hover:text-[#E5946D] cursor-pointer w-[50px] h-[50px] " />
+        <AiOutlineCloseCircle  onClick={handleClose} className=" cursor-pointer max-sm:w-10 hover:text-[#E5946D] w-[60px] h-[60px] " />
       </nav>
     </header>
   );

@@ -5,37 +5,42 @@ import Menu from './pages/Menu';
 import Franchise from './pages/Franchise';
 import Contacts from './pages/Contacts';
 import Footer from './components/Footer';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import Drink from './pages/Drink';
-import ScrollToTop from './utils/scrollToTop';
+import Authorization from './pages/Authorization';
+import Registration from './pages/Registration'
+import DropDownMenu from './pages/DropDownMenu'
+import Profile from './pages/Profille'
 import HeaderMenu from './components/HeaderMenu'
-import DropDownMenu from './pages/DropDownMenu';
-import React, { useState } from 'react';
+import FooterMenu from './components/FooterMenu'
+import { useParams } from 'react-router-dom';
+
 
 function App() {
+  const location = useLocation()
+  const { parentPath } = useParams();
+  const isDropDownMenuPage = location.pathname.includes('/DropDownMenu');
+  const isFooterPage = !location.pathname.includes('/DropDownMenu');
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes >
-          <Route path="/DropDownMenu" element={
-            <>
-              <HeaderMenu/>
-              <DropDownMenu />
-            </>
-          }/>
-        </Routes>
-        <Header/>
+      {isDropDownMenuPage ? <HeaderMenu /> : <Header />}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Menu/:idMenu" element={<Menu />} />
-          <Route path="/Menu/:idMenu/:id" element={<Drink />} />
+          <Route path="/:idMenu" element={<Menu />} />
+          <Route path="/:idMenu/:id" element={<Drink />} />
           <Route path="/Franchise" element={<Franchise />} />
           <Route path="/Contacts" element={<Contacts />} />
+          <Route path="/:parentPath/DropDownMenu" element={<DropDownMenu/>} />
+          <Route path=":idMenu/:id">
+            <Route path="DropDownMenu" element={<DropDownMenu />} />
+          </Route>
+          <Route path="/:parentPath/DropDownMenu/Registration" element={<Registration />} />
+          <Route path="/:parentPath/DropDownMenu/Authorization" element={<Authorization />} />
+          <Route path="/:parentPath/DropDownMenu/Profile" element={<Profile />} />
         </Routes>
-        <Footer/>
-      </BrowserRouter>
+        {isFooterPage ? <Footer /> : <FooterMenu/>}
     </div>
   );
 }

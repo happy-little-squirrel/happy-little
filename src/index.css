@@ -2,8 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 @import 'tailwindcss';
 
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-merri: 'Merriweather', serif;
   --font-monts: 'Montserrat', sans-serif;
   --font-libre: 'Libre Barcode 128 Text', sans-serif;
 }
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */

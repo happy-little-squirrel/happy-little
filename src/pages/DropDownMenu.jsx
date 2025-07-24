@@ -1,35 +1,37 @@
+import { useLocation, useParams, NavLink } from "react-router-dom";
 import { FaTelegramPlane, FaVk, FaWhatsapp  } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
-import { RemoveScroll } from 'react-remove-scroll';
 
 function DropDownMenu() {
+    const { state } = useLocation();
+    const currentPath = state?.from || "/"; 
+    const isMenuActive = currentPath.toLowerCase().includes('menu');
+    const { parentPath } = useParams()
     return (
-        <RemoveScroll>
-        <section className=" bg-white w-[100%] text-[#594e4e] font-monts leading-[1.5] tracking-[1.5px] text-[18px] font-semibold ">
-            <div className=" h-screen max-lg:flex max-lg:flex-col max-lg:justify-between max-lg:items-center grid grid-rows-[1.4fr_0.3fr_0.5fr_0.5fr_0.6fr]">
-                <ul className=" max-md:text-[15px] max-lg:text-[18px] max-md:mt-5 max-lg:mt-20 flex flex-col gap-[10px] items-center justify-end text-[18px] ">
-                    <NavLink to="/" className=" hover:text-[#E5946D] ">
+        <section className= " h-[80vh] bg-white text-[#594e4e] font-monts tracking-[1.5px] text-[18px] font-semibold ">
+            <div className=" dark:text-[#f5eaea] dark:bg-[#0b0005] max-sm:text-[15px] h-[100%] w-[100%] flex flex-col justify-between ">
+                <ul className=" mt-10 flex flex-col gap-2 items-center ">
+                    <NavLink to="/Home" className={currentPath === "/Home" ? "text-[#E5946D]" : "hover:text-[#E5946D]"}>
                         Главная
                     </NavLink>
-                    <NavLink to="/About" className=" hover:text-[#E5946D] ">
+                    <NavLink to="/About" className={currentPath === "/About" ? "text-[#E5946D]" : "hover:text-[#E5946D]"}>
                         О нас
                     </NavLink>
-                    <NavLink to="/Menu/0" className=" hover:text-[#E5946D] ">
+                    <NavLink to="/Menu0" className={isMenuActive ? "text-[#E5946D]" : "hover:text-[#E5946D]"}>
                         Меню
                     </NavLink>
-                    <NavLink to="/Franchise" className=" hover:text-[#E5946D] ">
+                    <NavLink to="/Franchise" className={currentPath === "/Franchise" ? "text-[#E5946D]" : "hover:text-[#E5946D]"}>
                         Франшиза
                     </NavLink>
-                    <NavLink to="/Contacts" className=" hover:text-[#E5946D] ">
+                    <NavLink to="/Contacts" className={currentPath === "/Contacts" ? "text-[#E5946D]" : "hover:text-[#E5946D]"}>
                         Контакты
                     </NavLink>
                 </ul>
-                <div className=" max-md:text-[13px] max-lg:text-[18px] max-lg:flex-col max-lg:gap-1 flex gap-[10px] items-center justify-center ">
-                    <button className=" max-lg:w-100 w-[15%] underline ">Регистрация</button>
+                <div className=" max-lg:flex-col flex gap-1 justify-center ">
+                    <NavLink to={`/${parentPath}/DropDownMenu/Registration`} className=" cursor-pointer hover:text-[#E5946D] max-lg:w-[100%] text-center w-[20%] underline ">Регистрация</NavLink>
                     <p className=" max-lg:hidden ">/</p>
-                    <button className=" w-[15%] underline ">Войти</button>
+                    <NavLink to={`/${parentPath}/DropDownMenu/Authorization`} className=" cursor-pointer hover:text-[#E5946D] max-lg:w-[100%] text-center w-[20%] underline ">Войти</NavLink>
                 </div>
-                <div className=" flex gap-[10px] justify-center items-center ">
+                <div className=" flex gap-3 justify-center ">
                     <NavLink to="https://web.telegram.org/a/" >
                         <FaTelegramPlane className=" hover:text-[#E5946D] border rounded-full p-1 w-[25px] h-[25px] " />
                     </NavLink>
@@ -40,15 +42,9 @@ function DropDownMenu() {
                         <FaWhatsapp className=" hover:text-[#E5946D] border rounded-full p-1 w-[26px] h-[26px] " />
                     </NavLink>
                 </div>
-                <li className=" max-md:text-[15px] max-lg:text-[18px] max-lg:flex max-lg:gap-1 hidden ">
-                    <button className=" max-lg:underline uppercase  ">ru</button>
-                    <button className=" max-lg:underline uppercase ">en</button>
-                </li>
-                <img className=" max-lg:h-30 max-lg:object-cover w-[100%] mix-blend-exclusion  " src="/src/assets/images/dropdownmenu/decor.png" ></img>
-                <a className=" max-lg:mb-15 max-md:text-[15px] max-lg:text-[18px] items-center font-normal font-libre flex justify-center text-[40px] uppercase">Happy little</a>
+                <img className=" dark:mix-blend-luminosity dark:opacity-20 h-[20vh] object-cover w-[100%] mix-blend-exclusion " src="/src/assets/images/dropdownmenu/decor.png" ></img>
             </div>
         </section>
-        </RemoveScroll>
     )
 }
 export default DropDownMenu;
